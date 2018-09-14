@@ -1,0 +1,83 @@
+@keyframes bounce { 
+	0%, 20%, 50%, 80%, 100% {
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40%, 60% {
+		-webkit-transform: translateY(-10px);
+		-ms-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+
+/* Animação Botão Email Fixo */
+#btn-email {
+    -webkit-animation: bounce 2s 0.5s infinite linear alternate;
+    -moz-animation: bounce 2s 0.5s infinite linear alternate;
+    -ms-animation: bounce 2s 0.5s infinite linear alternate;
+    -o-animation: bounce 2s 0.5s infinite linear alternate;
+    animation: bounce 2s 0.5s infinite linear alternate;
+}
+
+/* Animação geral dos elementos do site */
+.js .anime {
+	opacity: 0;
+	transform: translate3D(-50px, 0px, 0px);
+}
+
+.js .anime-init {
+	opacity: 1;
+	transform: translate3D(0px, 0px, 0px);
+	transition: 0.7s all ease-in-out;
+}
+/* Animação Botões */
+.btn-envelope .btn, .btn {
+  background: none !important;
+  border: 1px solid #333;
+  color: #333;
+  border-radius: 0 !important;
+  letter-spacing: 1px !important;
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+  padding: 10px 30px !important;
+  position: relative;
+  transition:color 0.25s ease;
+}
+.btn-envelope .btn:hover, .btn:hover{
+  color: #fff !important;
+  border: 1px solid #333 !important;
+  background-color: transparent !important;
+}
+.btn-envelope .btn::after, .btn::after {
+  position: absolute;
+  content: '';
+  top:0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #000;
+  transform-origin:left;
+  transition:width 0.25s ease;
+  z-index:-1;
+}
+.btn-envelope.btn:hover::after, .btn:hover::after, #btn-email .btn:hover::after{
+  width: 100%;
+}
+#carreira .btn::after, #pacotes-home button::after, #error404 .btn::after{
+  background-color: #ad5b57;
+}
+.main-btn{
+    color: #ff7800 !important;
+    border: 1px solid #ff7800 !important;
+    background-color: transparent !important;
+}
+#newsletter .btn:hover {
+    color: #000 !important;
+    border: 1px solid #fff !important;
+}
+#newsletter .btn::after {
+  background-color: #fff;
+}

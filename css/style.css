@@ -1,0 +1,1175 @@
+/*---------------------------------------------
+Proposta: Site do Salão Beleza de Camarim
+Ano: 2017
+
+Desenvolvido por: Jeanne Lima
+Behance: https://www.behance.net/jeannelimac442
+Linkedin: https://br.linkedin.com/in/jeannecslima
+---------------------------------------------*/
+
+/*Anotações -----------------------------------
+-Consertar espaçamento das etapas do funcionamento (tirar bordas laterais do primeiro e do último elemento);
+-Pode ser válido melhorar o posicionamento do formulário do botão de email fixo nos tablets de diferentes tamanhos;
+-Consertar o espaçamento das colunas de pacotes (última coluna fica desalinhada do resto do site) por conta do padding para o espaçamento entre as colunas;
+---------------------------------------------*/
+
+/*Legendas -----------------------------------
+-Sugestões de alterações podem ser encontadas com o termo "melhoria";
+-Problemas no código podem ser encontrados com o termo "bug";
+-Rever o "box anime" da animação de entrada da imagem em carreira na home;
+-Desfazer o efeito do "box anime" quando se passa novamente no mesmo lugar (executar animação só quando carrega pela primeira vez);
+-Ver se a newsletter da telas de login e cadastro vai ficar mesmo sem animação do "box anime";
+-Fazer responsividade da tela de login;
+-Revisar a responsividade do botão da Newsletter;
+-Consertar padding e border-radius do select de sexo no cadastro;
+-Ver se vai deixar os espaçamentos dos campos de cadastro como no layout ou como já está;
+-Ajeitar espaçamento entre botões do catálogo (todos);
+-Rever o botão que fica em destaque quando selecionado no catálogo (só o "todos" está ficando preto e em todas as ocasiões);
+-Quando carregada a aba "pacotes" as opções "serviços" e "ajuda" não funcionam
+---------------------------------------------*/
+
+/* Informações Gerais
+---------------------------------------------*/
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+}
+html, body, .container , .row{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    padding-top: 80px;
+}
+li{
+    list-style-type: none;
+}
+a, a:hover, a:visited, a:focus{
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+button{
+    outline: none !important; 
+    box-shadow: none !important;
+}
+.panel{
+    border-radius: 0;
+}
+.col-xs-offset-1, .col-sm-offset-1 {
+    margin: 0 8.33333333%;
+}
+
+/* Fontes
+---------------------------------------------*/
+@font-face {
+    font-family: 'Aleo Bold';
+    src: url('../fonts/aleo/aleo_bold_macroman/Aleo-Bold-webfont.eot');
+    src: url('../fonts/aleo/aleo_bold_macroman/Aleo-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo/aleo_bold_macroman/Aleo-Bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo Bold Italic';
+    src: url('../fonts/aleo/aleo_bolditalic_macroman/Aleo-BoldItalic-webfont.eot');
+    src: url('../fonts/aleo/aleo_bolditalic_macroman/Aleo-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo/aleo_bolditalic_macroman/Aleo-BoldItalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo Light';
+    src: url('../fonts/aleo/aleo_light_macroman/Aleo-Light-webfont.eot');
+    src: url('../fonts/aleo/aleo_light_macroman/Aleo-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo/aleo_light_macroman/Aleo-Light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo Light Italic';
+    src: url('../fonts/aleo/aleo_lightitalic_macroman/Aleo-LightItalic-webfont.eot');
+    src: url('../fonts/aleo/aleo_lightitalic_macroman/Aleo-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo/aleo_lightitalic_macroman/Aleo-LightItalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo Regular';
+    src: url('../fonts/aleo/aleo_regular_macroman/Aleo-Regular-webfont.eot');
+    src: url('../fonts/aleo/aleo_regular_macroman/Aleo-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo/aleo_regular_macroman/Aleo-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aleo Italic';
+    src: url('../fonts/aleo/aleo_regularitalic_macroman/Aleo-Italic-webfont.eot');
+    src: url('../fonts/aleo/aleo_regularitalic_macroman/Aleo-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/aleo/aleo_regularitalic_macroman/Aleo-Italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Preloading
+---------------------------------------------*/
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 99;
+}
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+}
+
+/* Seção Navbar
+---------------------------------------------*/
+.navbar{
+    background: #fff;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+    border-radius: 0;
+    z-index: 40;
+}
+.navbar-fixed-top{
+    height: 80px;
+}
+.navbar-brand img{
+    width: 120px;
+    height: auto;
+}
+.navbar-login{
+    display: block;
+    text-align: right;
+}
+.navbar-login img{
+    width: 32px;
+}
+.navbar-nav>li>.dropdown-menu{ /* Melhoria 1 */
+    padding-bottom: 15px;
+}
+.navbar .dropdown-menu, .navbar-nav{
+    background-color:rgba(255,255,255,0.95);
+}
+.navbar .dropdown-menu li a{
+    padding: 0 20px;
+}
+.navbar li a{
+    font-size: 17px;
+    margin-top: 15px;
+    font-weight: 300;
+}
+.navbar li:first-child{
+    margin-left: 20px;
+}
+.navbar .dropdown-menu li{
+    margin-left: 0;
+}
+/* Navbar Login */
+.navbar-login li a{
+    background: transparent; 
+    display: block;
+    text-align: right;
+    font-weight: 600;
+}
+.navbar-login .nav{
+    background-color: transparent;
+}
+.navbar-login img{
+    margin-top: 22.5px;
+}
+.navbar-login ul li{
+    position: absolute;
+    top: -10px;
+    right: 10px;
+}
+.navbar-login a{
+    display: block;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+navbar.less:418
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+/* Animações Navbar */
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #000;
+    border-color: transparent;
+}
+.navbar-default .navbar-toggle:hover  .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar{
+    background-color: #fff;
+}
+/* Seção Header Apresentação
+---------------------------------------------*/
+/* Home Apresentação */
+#home-apresentacao{
+	background-image: url('../img/bg/header.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 92.5vh;
+    overflow: hidden;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+}
+#home-apresentacao .row{
+    position: relative;
+    top: 575px;
+}
+#home-apresentacao h1{
+    font-family: 'Aleo Bold', serif;
+    font-size: 36px;
+}
+#home-apresentacao h2{
+	font-size: 21px;
+	font-weight: 300;
+}
+#home-apresentacao h2 span{
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#home-apresentacao h3{
+	font-weight: 300;
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+/* Botton Download */
+.botton-download{
+    border: 0;
+    padding: 0;
+    margin: 0 10px 0 0;
+}
+.botton-download:first-child{
+    margin: 0 10px 0 0;
+}
+.download-apresentacao{
+    padding: 0;
+}
+.app {
+    position: relative;
+    right: -60px;
+}
+/* Botao de Email Fixo */
+#btn-email {
+	position: fixed;
+	bottom: 7%;
+	right: 25px;
+	z-index: 48;
+	background: rgba(0,0,0, 1.0);
+	padding: 10px 12.5px;
+}
+#btn-email img{
+	width: 18px;
+}
+/* Formulario Botao de Email Fixo */
+#contactForm { 
+  display: none;
+  padding: 30px 30px 50px;
+  width: 400px;
+  text-align: center;
+  background: #fff;
+  position: fixed;
+  right: -10%;
+  bottom: -50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  z-index: 50;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/*#contactForm:before {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(255, 0, 0, .8);
+    z-index: 2;
+}*/
+input, textarea { 
+    margin: .8em auto;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+.form-control{
+    border-radius: 0;
+    padding: 21px;
+}
+#contactForm .form-titulo{
+    display: block;
+    color: #000;
+    font-weight: 600;
+    margin: 0 0 40px;
+    text-align: center;
+    text-shadow: none;
+}
+#contactForm .form-titulo span{
+    display: block;
+}
+#contactForm .form-titulo .titulo{
+    font-family: 'Aleo Light', serif;
+    font-size: 36px;
+}
+#contactForm .form-titulo .subtitulo{
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+#contactForm .form-titulo small{
+    font-size: 10px;
+    font-weight: thin;
+}
+#contactForm  .form-opcoes{
+    float: right;
+    display: flex;
+    text-align: right;
+}
+#contactForm  .btn{
+    margin: 15px 0 0;
+}
+#contactForm  .control-label{
+    text-align: left;
+    margin: 0 0 10px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase !important;
+    color: #333;
+    padding:0;
+}
+textarea{
+    resize: none;
+}
+textarea.form-control {
+    height: 100px;
+}
+/* Seção Funcionamento
+---------------------------------------------*/
+#funcionamento{
+    height: auto;
+    padding: 60px 0;
+    color: #333;
+}
+.coluna-funcionamento{
+    display: block;
+    margin: 4.15151515%;
+}
+.coluna-funcionamento:last-child{
+    margin-right: 0%;
+}
+#funcionamento .titulos{
+    text-align: center;
+}
+#funcionamento .titulo-secao{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+}
+#funcionamento .subtitulo-secao{
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+.titulo-funcionamento{
+    font-family: 'Aleo Light Italic', serif;
+    display: block; 
+    font-size: 23px;
+    margin: 5px 0 20px;
+    text-align: center;
+}
+.titulo-funcionamento:after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: #ff7800;
+  transition: 300ms;
+}
+.titulo-funcionamento:hover:after {
+  width: 100%;
+}
+.descricao-funcionamento{
+    display: block;
+    font-weight: 500;
+    font-size: 17px;
+    text-align: center;
+}
+.icone-funcionamento{
+    display: flex;
+    justify-content: center;
+}
+.icone-funcionamento img{
+    width: 30px;
+    margin: 30px 0 10px;
+}
+#funcionamento .btn-envelope{
+    text-align: center;
+}
+#funcionamento .btn{
+    margin: 40px 0 80px;
+}
+
+/* Seção Sobre
+---------------------------------------------*/
+#sobre .container{
+    height: auto;
+    padding: 60px 0;
+    color: #333;
+}
+#sobre .titulo{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+#sobre .descricao{
+    display: flex;
+    flex-flow: column wrap; 
+    margin: 30px 0;
+}
+.descricao-titulo{
+    font-family: 'Aleo Regular', serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.descricao-texto{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #737373;
+}
+
+/* Seção Carreira
+---------------------------------------------*/
+#carreira .container{
+    height: 55vh;
+    padding: 60px 0;
+    color: #fff;
+    background-color: #333;
+}
+#carreira .titulo{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+#carreira .descricao{
+    display: flex;
+    flex-flow: column wrap; 
+    margin: 30px 0;
+}
+#carreira .btn{
+    border: 1px solid #ad5b57 !important;
+    margin: 10px 0 0;
+    color: #fff !important;
+}
+/* Imagem da Lateral */
+.img-envelope{
+    display: block;
+    position: relative;
+    bottom: 350px;
+    padding: 0;
+    width: 50%;
+    height: 600px;
+    overflow: hidden;
+}
+.img-envelope .photo{
+    position: relative;
+    top: 0;
+    width: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease-out;
+}
+
+
+/* Seção Pacotes
+---------------------------------------------*/
+#pacotes-home .container{
+    height: auto;
+    padding: 60px 0;
+    color: #fff;
+    background-color: #333;
+}
+.infos-pacotes{
+    background-color: #3d3d3d;
+    padding-top: 30px;
+}
+#pacotes-home .titulos{
+    text-align: center;
+    margin-bottom: 4.15151515%;
+}
+#pacotes-home .titulo-secao{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+}
+#pacotes-home .subtitulo-secao{
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+.linha-pacotes{
+    padding: 0;
+}
+.coluna-pacotes{
+    padding-left: 10px; /* Bug 2 */
+    display: block;
+}
+.icone-pacote img{
+    width: 100%;
+    height: auto; 
+}
+.titulo-pacote{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 30px 0;
+}
+.descricao-pacote{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 21px;
+    margin: 20px 30px 0;
+}
+#pacotes-home .btn-envelope{
+    text-align: center;
+}
+#pacotes-home .btn{
+    border: 1px solid #ad5b57 !important;
+    margin: 40px 0 60px;
+    color: #fff !important;
+}
+ .icone-pacote{ 
+    display: block; 
+    position: relative;  
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+.photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: transform .5s ease-out;
+  }
+
+/* Seção Newsletter
+---------------------------------------------*/
+#newsletter .container{
+    background: #000;
+    color: #fff;
+    margin: 0 auto;
+    padding: 80px 0; 
+    border-bottom: 1px solid #CECECE;
+}
+#descricao-newsletter {
+    display: block;
+    float: left;
+}
+#newsletter .titulo{
+    font-family: 'Aleo Light', serif;
+    font-size: 36px;
+    margin: 0 0 10px;
+    text-align:center; 
+}
+#newsletter .descricao-newsletter{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#newsletter form {
+    float: right;
+    margin: 20px 0;
+}
+#newsletter .form-group{
+    padding: 0;
+    margin: 10px 0 0; 
+    margin-left: 20px;
+}
+#newsletter .form-control{
+    /* width: 50%; */
+    width: 80%;
+}
+#newsletter input{
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 0;
+    padding: 21px;
+}
+#newsletter .btn{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+#newsletter .btn-envelope {
+    padding: 0;
+}
+
+/* Footer 
+---------------------------------------------*/
+footer{
+    padding: 30px 0 0 0;
+    color: #000;
+}
+footer .container{
+    padding-bottom: 0
+}
+footer li{
+    display: block;
+    margin: 10px 0;
+}
+footer a, footer h4{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #000;
+}
+footer h3{
+    font-family: 'Aleo Regular', serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.footer-contato-infos{
+    padding: 0;
+}
+#footer-contato{
+    float: right;
+    margin-right: 7.5%;
+}
+footer h5{
+    font-size: 12px;
+    font-weight: 600;
+}
+footer span, footer span a{
+    color: #333;
+    font-weight: 500;
+}
+#footer-menu{
+    margin: 20px 0;
+}
+#footer-menu ul{
+    padding: 0;
+}
+.social-network {
+    margin-top: 20px;
+} 
+.social-network img{
+    width: 25px;
+    height: auto;
+    margin-right: 5px;
+}
+.footer-brand{
+    float:right;
+    width: 150px;
+    padding: 0;
+}
+.footer-botton{
+    padding: 0;
+}
+.footer-setaTop{
+    margin-top: 50px;
+}
+.credits{
+    margin: 30px 0 60px;
+    padding: 0;
+}
+.credits h5{
+    margin: 0;
+    padding: 0;
+}
+/* Setinha scroll rolagem*/
+#botton-footer-top img{
+    padding: 0;
+    margin: 0;
+    float: right;
+    width: 36px;
+}
+footer h3, footer h5{
+    color: #000;
+}
+.footer-catalogo, .footer-pacotes, .footer-carreira{
+    margin-right: 7.5%;
+}
+#footer-contato{
+    padding: 0;
+}
+
+/* Login e Cadastro
+---------------------------------------------*/
+#form-login .container{
+    padding: 100px 0;
+}
+#form-login .btn{
+    justify-content: center;
+}
+.form-titulo{
+    font-family: 'Aleo regular', serif;
+    font-size: 32px;
+    display: block;
+    color: #000;
+    margin: 0 0 40px;
+    text-align: center;
+    text-shadow: none;
+}
+.login-form a{
+    color: #939393;
+    font-weight: 600;
+    font-size: 14px;
+}
+.form-opcoes{
+    float: right;
+    display: flex;
+    text-align: right;
+}
+#form-login .checkbox label{
+    color: #000;
+    font-weight: 600;
+    font-size: 14px;
+}
+#form-login .descricao-singUp{
+    font-weight: 500;
+    font-size: 15px;
+    color: #737373;
+}
+.signUp-form .form-titulo{
+    margin: 0 0 75px;
+}
+#form-login .titulo-secao{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+}
+#form-login .control-label, #form-register .control-label{
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #333;
+}
+.signUp-form .btn{
+    margin: 50px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Redefinição de Senha
+---------------------------------------------*/
+.body-newPassword{
+    background-color: #000;
+}
+#newPassword img{
+    display: block;
+    padding: 0 37.5%;
+    margin-bottom: 25px;
+}
+#newPassword .control-label, #newPassword .control-label {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #333;
+}
+.sugestoes-newPassword{
+    padding: 40px 0;
+    padding-left: 8.33333%;
+}
+.newPassword-form{
+    background-color: #fff;
+    color: #fff;
+    margin: 0;
+    padding: 40px 8.33333333%;
+}
+.sugestoes-newPassword li{
+    list-style: circle;
+    color: #333;
+}
+
+/* Painel de Redefinição de Senha
+---------------------------------------------*/
+#recovery-panel {
+    display: none;
+    z-index: 50;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: absolute;
+    width: 500px;
+    transform: translate(-7%,-135%); 
+    -webkit-transform: translate(-7%,-135%);
+    padding: 30px;
+    text-align: center;
+}
+#recovery-panel .btn{
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px 40px;
+    letter-spacing: 1px;
+    color: #333;
+    border: 1px solid #333;
+    justify-content: center;
+    background-color: #fff;
+    margin: 15px 10px 0;
+}
+#recovery-panel #recupera{
+    color: #fff;
+    background-color: #000;
+}
+.overlay-modal {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.3);
+    z-index: 45;
+}
+.panel-heading, .panel-success>.panel-heading{
+    background-color: transparent;
+    border: none;
+}
+.panel-title{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+}
+.panel-subtitle{
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+
+/* Cadastro
+---------------------------------------------*/
+#form-register .container{
+    padding: 25px 0 100px;
+}
+#form-register .btn{
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px 40px;
+    letter-spacing: 1px;
+    color: #333;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+}
+#form-register .titulos{
+    text-align: center;
+}
+#form-register .titulo-secao{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+}
+#form-register .subtitulo-secao{
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+#form-register .select{
+    margin: .8em auto;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    height: 45px !important;
+    padding:13px 20px 13px 12px !important; 
+}
+#form-register .btn-envelope{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+#form-register .btn-envelope .voltar{
+    margin-right: 20px;
+}
+/* Barra de Progresso */
+#form-register .barraProgresso{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+/* Catálogo
+---------------------------------------------*/
+#catalogo .titulos{
+    text-align: center;
+    margin: 60px 0 60px;
+}
+#catalogo .titulo-secao{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+    color: #000;
+}
+#catalogo .subtitulo-secao{
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+.envelope-catalogo {
+    overflow: hidden;
+}
+.filterDiv {
+    display: none; /* Hidden by default */
+    padding: 0 12.5px; /* Bug 2 */
+    display: none;
+}
+.mostrar {
+    display: block;
+}
+#myBtnCatalogo .btn-category {
+  border: none;
+  font-weight: 500;
+  margin: 0 0 40px !important;
+  color: #000;
+  background-color: transparent;
+  border-radius: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px 40px;
+  letter-spacing: 1px;
+}
+#myBtnCatalogo .btn-category:after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: #ff7800;
+  transition: 300ms;
+}
+#myBtnCatalogo .btn-category:hover:after, #myBtnCatalogo .btn-category.active:after {
+  width: 100%;
+}
+#myBtnCatalogo .btn-category.active {
+  color: #ff7800;
+  font-weight: 600;
+  transition: all ease .5s;
+}
+.icone-catalogo img{
+    width: 100%;
+    height: auto; 
+}
+.titulo-catalogo{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #000;
+}
+.descricao-catalogo{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 21px;
+    margin: 5px 0;
+    color: #000;
+}
+#catalogo .filterDiv .btn-envelope{
+    text-align: center;
+    margin: 10px 0 80px !important;
+}
+#catalogo .filterDiv .btn-category{
+    border: 1px solid #ff7800;
+    background-color: transparent;
+    color: #ff7800;
+}
+.infos-catalogo{
+    margin: 25px 0 0;
+    text-align: center;
+}
+#myBtnCatalogo {
+    text-align: center;
+}
+
+/* Slider Catalogo */
+/* Carousel Catálogo */
+.carousel-inner .item img{
+    width: 100vw;
+    height: auto;
+}
+.carousel-control.left:hover {
+    right: auto;
+    left: 0;
+    background-color: rgba(255,255,255,.08);
+}
+.carousel-control.right:hover {
+    right: 0;
+    left: auto;
+    background-color: rgba(255,255,255,.08);
+}
+.breadcrumb {
+    padding: 0;
+    list-style: none;
+    background-color: transparent;
+}
+.breadcrumb .active{
+    color: #000;
+    font-weight: 600;
+}
+.breadcrumb li a{
+    color: #777;
+}
+/* Produtos Catálogo */
+.item-img{
+    height: 300px;
+    overflow: hidden;
+}
+.productinfo .item-img img{
+  width: 100%;
+}
+.padding-right {
+  padding-right: 0;
+}
+.features_items{
+    overflow:hidden;
+}
+h2.title {
+  color: #FE980F;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 15px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  position: relative;
+}
+.product-image-wrapper{
+    border:1px solid #F7F7F5;
+    overflow: hidden;
+    margin-bottom:30px;
+}
+.single-products {
+  position: relative;
+}
+
+/* Error 404 */
+#error404{
+    background: #333;
+    color:#fff;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+#error404 .container{
+    padding: 25px 0;
+}
+.message404{
+    text-align: center;
+    display: block;
+}
+.error{
+    font-family: 'Aleo Bold', serif;
+    font-size: 42px;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    letter-spacing: 2px;
+}
+.titulo404{
+    font-family: 'Aleo Light Italic', serif;
+    font-size: 23px;
+    margin: 15px 0 5px;
+}
+.subtitulo404{
+    font-weight: 500;
+    font-size: 17px;
+    margin: 5px 0 35px;
+}
+#error404 .btn,  #error404 .btn:hover {
+  color: #fff ;
+  border: 1px solid #ad5b57 !important;
+}
+hr{
+    padding: 0;
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0px auto;
+    width: 20%;
+    height:10px;
+    z-index: -10;
+}
+.menus-footer{
+    border:0;
+    border-left: 1px solid #eee;
+}
+.menus-footer .footer-carreira, .menus-footer .footer-ajuda {
+    margin-right: 0 !important;
+}
+.app-mockup img{
+    width: 100%;
+    height: auto;
+}
+.app-text{
+    text-align: left;
+}
+.app-text .download-apresentacao{
+    width: 100%;
+}
+.app-subtitle {
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+.app-title {
+    font-family: 'Aleo Light', serif;
+    display: block;
+    font-size: 28px;
+    color: #333;
+}

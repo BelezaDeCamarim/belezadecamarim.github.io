@@ -1,0 +1,289 @@
+/*---------------------------------------------
+Proposta: Site do Salão Beleza de Camarim
+Ano: 2017
+
+Desenvolvido por: Jeanne Lima
+Behance: https://www.behance.net/jeannelimac442
+Linkedin: https://br.linkedin.com/in/jeannecslima
+---------------------------------------------*/
+
+/*Anotações -----------------------------------
+-Consertar espaçamento das etapas do funcionamento (tirar bordas laterais do primeiro e do último elemento);
+-Pode ser válido melhorar o posicionamento do formulário do botão de email fixo nos tablets de diferentes tamanhos;
+-Consertar o espaçamento das colunas de pacotes (última coluna fica desalinhada do resto do site) por conta do padding para o espaçamento entre as colunas;
+---------------------------------------------*/
+
+/*Legendas -----------------------------------
+-Menu dropdown de "serviços" e "ajuda" não funcionando nesta aba;
+-Consertar responsividade do slider;
+---------------------------------------------*/
+
+* {
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+#extra-pacotes .titulos{
+    text-align: center;
+    margin: 60px 0 60px;
+}
+#extra-pacotes .titulo-secao{
+    font-family: 'Aleo Light', serif;
+    display: block; 
+    font-size: 36px;
+    text-align: center;
+    color: #000;
+}
+#extra-pacotes .subtitulo-secao{
+    text-transform: uppercase;
+    color: #ff7800;
+    font-weight: 600;
+    letter-spacing: 5px;
+    font-size: 17px;
+}
+.duvidas-form .control-label{
+  text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #333;
+}
+#duvidas .btn-envelope {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 60px;
+}
+
+/* Pacotes Looks Slider */
+#looks .slider-looks {
+  width: 100%;
+  height: auto;
+  background: #DA9B88;
+  position: relative;
+  overflow: hidden;
+}
+
+#looks .slider-looks .item {
+  height: 90vh;
+  float: left;
+  background-position: top center;
+  background-size: cover;
+  opacity: .8;
+  z-index: 0;
+  position: relative;
+}
+
+#looks .slider-looks .item .item-back {
+  height: 100%;
+  background-position: top center;
+  background-size: 0;
+}
+
+#looks .slider-looks .item .item-back:hover {
+  background-size: cover;
+}
+
+#looks .slider-looks .item div.back-image {
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+#looks .slider-looks .item div.mask {
+  content: ".";
+  width: 100%;
+  height: 100%;
+  text-indent: -99999px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-image: -webkit-linear-gradient(rgba(218, 155, 136, 0) 50%, #da9b88 90%);
+  background-image: linear-gradient(rgba(218, 155, 136, 0) 50%, #000 90%);
+}
+
+#looks .slider-looks .item div.mask:before, #looks .slider-looks .item div.mask:after {
+  content: ".";
+  text-indent: -999999px;
+  display: block;
+  position: absolute;
+  width: 1%;
+  height: 1%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#looks .slider-looks .item div.mask:before {
+  z-index: 10;
+  border-top: #fff solid 4px;
+  border-left: #fff solid 4px;
+}
+
+#looks .slider-looks .item div.mask:after {
+  z-index: 12;
+  border-bottom: #fff solid 4px;
+  border-right: #fff solid 4px;
+  right: 10px;
+  bottom: 10px;
+}
+
+#looks .slider-looks .item:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#looks .slider-looks .item:hover div.back-image {
+  opacity: 1;
+}
+
+#looks .slider-looks .item:hover .mask:before, #looks .slider-looks .item:hover .mask:after {
+  width: -webkit-calc(100% - 20px);
+  width: calc(100% - 20px);
+  height: -webkit-calc(100% - 20px);
+  height: calc(100% - 20px);
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#looks .slider-looks .item .the-description {
+  position: absolute;
+  text-align: right;
+  bottom: 30px;
+  right: 30px;
+  width: -webkit-calc(100% - 60px);
+  width: calc(100% - 60px);
+}
+
+#looks .slider-looks .item .the-description h4 {
+  font-family: 'Aleo Bold', serif;
+  font-size: 36px;
+  text-shadow: 2px 2px 5px #000;
+  color: #fff;
+}
+
+#looks .slider-looks .item .the-description p {
+  color: #fff;
+}
+
+#looks .slider-looks .item .the-description p.price {
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 7px;
+  text-transform: uppercase;
+}
+
+#looks .slider-looks button.slick-prev, #looks .slider-looks button.slick-next {
+  position: absolute;
+  z-index: 110;
+  width: 100px;
+  height: -webkit-calc(100vh - 158px);
+  height: 90vh;
+  text-indent: -99999px;
+  cursor: pointer;
+  top: 0;
+  opacity: 0;
+}
+
+#looks .slider-looks button.slick-prev:focus, #looks .slider-looks button.slick-prev:hover, #looks .slider-looks button.slick-next:focus, #looks .slider-looks button.slick-next:hover {
+  outline: 0 none;
+}
+
+#looks .slider-looks button.slick-prev {
+  left: 0;
+  background: rgba(255, 255, 255, 0.1) url("../img/arrow-left.svg") center center no-repeat;
+}
+
+#looks .slider-looks button.slick-next {
+  right: 0;
+  background: rgba(255, 255, 255, 0.1) url("../img/arrow-right.svg") center center no-repeat;
+}
+
+#looks .slick-dots {
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background-color: #000;
+  padding: 13px 0 10px 0;
+  margin-bottom: -2px;
+}
+
+#looks .slick-dots li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#looks .slick-dots li button {
+  width: 14px;
+  height: 17px;
+  border: #fff solid 2px;
+  background-color: transparent;
+  text-indent: -99999px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#looks .slick-dots li button:focus {
+  outline: 0 none;
+}
+
+#looks .slick-dots li.slick-active button {
+  background-color: #fff;
+}
+
+#looks:hover button.slick-prev, #looks:hover button.slick-next {
+  opacity: 1;
+}
+
+/* Media Queries */
+
+@media (max-width: 640px) {
+  /* Looks */
+  #looks .slider-looks {
+    padding-bottom: 40px;
+    width: 100vw;
+  }
+  #looks .slider-looks .item {
+    height: -webkit-calc(100vh - 123px);
+    height: calc(100vh - 123px);
+  }
+  #looks .slider-looks:hover button.slick-prev, #looks .slider-looks:hover button.slick-next {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  #looks .slider-looks .item {
+    width: 33.3333%;
+    height: -webkit-calc(100vh - 158px);
+    height: calc(100vh - 158px);
+  }
+  #looks .slider-looks:hover button.slick-prev, #looks .slider-looks:hover button.slick-next {
+    display: none;
+  }
+}

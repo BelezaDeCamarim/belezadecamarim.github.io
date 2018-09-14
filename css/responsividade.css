@@ -1,0 +1,418 @@
+/*Anotações -----------------------------------
+-Consertar responsividade do menu dropdown-toggle (Bug 1), precisa de uma barra de rolagem para a visualização de todos os itens de "Ajuda";
+-No final, revisar a responsividade (navbar, header,funcionamento, footer);
+-Consertar alinhamento dos elementos do footer no mobile orientção landscape e tablet;
+-Consertar espaço da newsletter, q está em conflito com a linha 393.
+---------------------------------------------*/
+
+/* Super Extra Small devices (portrait phones, less than 400px) */
+@media only screen and (max-width: 400px) {
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 15vh;
+	}
+	/* Footer */
+	footer span, footer span a {
+	    display: inline-block;
+	    margin: 0;
+	}
+	.footer-brand {
+	    float: left; 
+	    margin: 30px 0 0;
+	}
+	.social-network span{
+		width: 100%;
+	}
+	.social-network{
+		margin-bottom: 15px;
+	}
+}
+
+/* Extra Small devices (portrait phones, less than 576px) */
+@media only screen and (min-width: 400px) and (max-width: 574px) {
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 25vh;
+	}
+}
+
+/* Extra Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575px) {
+	/* Geral */
+	.navbar .row{
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
+	}
+	#home-apresentacao .box, #register-newsletter{
+		padding: 0;
+	}
+	#funcionamento .btn{
+		width: 100%;
+	}
+	/* Header */
+	#home-apresentacao h2 span{
+		display: inline-block;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+}
+
+/* Extra Small devices (landscape phones, less than 576px) */
+@media only screen and (max-width: 575px) and (orientation: landscape) {
+	/* Header */
+	#home-apresentacao{
+		height: 125vh;
+	}
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+
+}
+
+@media only screen and (max-width: 767px){
+	/* Navbar */
+	.navbar-login li{
+		display: none;
+	}
+	.navbar-login .img-responsive{
+		position: absolute;
+		top: 0;
+		right: 75px;
+	}
+	.navbar-toggle{
+		position: absolute;
+		top: 15px;
+		right: 0;	
+	}
+	.navbar li:first-child{
+    	margin-left: 0;
+	}	
+	/* Botão Email Fixo */
+	#btn-email, #contactForm {
+	    display: none;
+	}
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 15vh;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+	/* Funcionamento */
+	.coluna-funcionamento{
+	    margin: 4.15151515% 0;
+	}
+	/* Newsletter */
+	#newsletter .form-control {
+		width: 100%;
+	    margin: 20px 0;
+	}
+	#newsletter .form-group {
+	    margin-left: 0;
+	    display: flex;
+		justify-content: center;
+	}
+	/* Footer */
+	#footer-contato{
+		float: left;
+		margin-left: 0;
+	}
+	/* Pacotes */
+	#pacotes-home .titulos{
+		margin-bottom: 10%;
+	}
+	.coluna-pacotes{
+	    margin: 4.15151515% 0;
+	    padding: 0; 
+	}
+	/* Sobre */
+	#sobre .container {
+	    padding-top: 0;
+	}
+	/* Carreira */
+	#carreira .container{
+	    height: auto;
+	    padding-bottom: 0;
+	}
+	#carreira .btn{
+	    display: flex;
+	    margin-left: auto;
+    	margin-right: auto;
+	}
+	.img-envelope{
+	    display: none;
+	}
+	/* Login */
+	#form-login .container{
+	    padding: 25px 0;
+	}
+	#form-login .form-horizontal {
+    	margin: 0 0 50px;
+	}
+	#form-login .btn {
+	    display: flex;
+	    justify-content: center;
+	}
+	/* Barra de Progresso */
+	#form-register .barraProgresso{
+		width: 83.33333%;
+		height: auto;
+		margin-bottom: 40px;
+	}
+	#form-register .barraProgresso img{
+		width: 100%;
+		height: 100%;
+	}
+	/* Catálogo */
+	#catalogo .btn {
+	  border: 1px solid #333;
+	  margin: 5px 0 5px;
+	  color: #000;
+	  background-color: #fff;
+	  width: 100%;
+	}
+	.envelope-catalogo{
+		margin-top: 40px;
+	}
+}
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 5vh;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){ /* iPad Portrait */
+	/* Geral */
+	#home-apresentacao .box, #register-newsletter{
+		padding: 0;
+	}
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 45vh;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+	#home-apresentacao h3{
+		font-size: 42px;
+	}
+	#home-apresentacao h2{
+		font-size: 21px;
+	}
+	#home-apresentacao h2 span{
+	    display: inline-block;
+	}
+	#home-apresentacao h3{
+		font-size: 18px;
+	}
+	/* Funcionamento */
+	.coluna-funcionamento{
+	    margin: 4.15151515% 0;
+	}
+	/* Pacotes */
+	#pacotes-home .titulos{
+		margin-bottom: 10%;
+	}
+	.coluna-pacotes{
+	    margin: 4.15151515% 0;
+	    padding: 0;
+	}
+	/* Newsletter */
+	#newsletter .form-control {
+		width: 100%;
+	    margin: 20px 0;
+	}
+	#newsletter .form-group {
+	    margin-left: 0;
+	    display: flex;
+		justify-content: center;
+	}
+	/* Footer */
+	#footer-contato{
+	    float: left;
+	    margin: 0;
+	}
+	/* Carreira */
+	#carreira .container{
+	    height: auto;
+	    padding-bottom: 0;
+	}
+	#carreira .btn{
+	    display: flex;
+	    margin-left: auto;
+    	margin-right: auto;
+	}
+	.img-envelope{
+	    display: none;
+	}
+	/* Catálogo */
+	#catalogo .btn {
+	  border: 1px solid #333;
+	  margin: 5px 0 5px;
+	  color: #000;
+	  background-color: #fff;
+	  width: 100%;
+	}
+
+	.envelope-catalogo{
+		margin-top: 40px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 40vh;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+	/* Footer */
+	#footer-contato{
+	    float: left;
+	    margin-left: 7.5%;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1024px) and (orientation: portrait){ /* iPad Pro Portrait */
+	/* Funcionamento */
+	.coluna-funcionamento{
+	    width: 33.33333%;
+	}
+	* Newsletter */
+	#newsletter .form-control {
+	    width: 60%;
+	    margin: 0 50px;
+	}
+	#newsletter .form-group {
+	    margin-left: 0;
+	    display: flex;
+		justify-content: center;
+	}
+	/* Footer */
+	#footer-contato{
+	    float: right;
+	    margin-right: 7.5%;
+	}
+	/* Carreira */
+	.img-envelope{
+		display: block;
+	}
+	.img-envelope img {
+	    position: relative;
+	    top: -25vh;
+	    width: 100%;
+	    height: auto;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px){
+	/* Newsletter */
+	#newsletter .form-control {
+	    width: 60%;
+	    margin: 0 50px;
+	}
+	#newsletter .form-group {
+	    margin-left: 0;
+	    display: flex;
+		justify-content: center;
+	}
+	/* Footer */
+	#footer-contato{
+		float: left;
+		margin-left: 0;
+	}
+	/* Carousel Catálogo */
+	.carousel-control.left:hover, .carousel-control.right:hover {
+	    width: 10%;
+	}
+}
+
+/* Large tablets */
+@media only screen and (min-width: 1024px) and (max-width: 1600px) and (orientation: portrait){
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 60vh;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+	#home-apresentacao h1{
+	    font-size: 60px;
+	}
+}
+
+/* Large tablets */
+@media only screen and (min-width: 1025px) and (max-width: 1600px) and (orientation: landscape){
+	/* Header */
+	#home-apresentacao .row{
+	    position: relative;
+	    top: 50vh;
+	}
+	.app {
+	    position: relative;
+	    right: 0px;
+	}
+	#home-apresentacao h1{
+	    font-size: 60px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px){
+	#contactForm { 
+	  position: fixed;
+	  right: -10%;
+	  bottom: -30%;
+	}
+/*#contactForm:befor
+	/* Carousel Catálogo */
+	.carousel-control.left:hover, .carousel-control.right:hover {
+	    width: 10%;
+	}
+}
+/* Extra large devices (large desktops, 1300px and up) */
+@media only screen and (min-width: 1300px){
+	#contactForm { 
+	  position: fixed;
+	  right: -10%;
+	  bottom: -52.5%;
+	}
+}
+/* Extra large devices (large desktops, 1400px and up) */
+@media only screen and (min-width: 1400px){
+	#contactForm { 
+	  padding: 30px 30px 50px;
+	  position: fixed;
+	  right: -10%;
+	  bottom: -30%;
+	}
+}
