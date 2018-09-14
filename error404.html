@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+            <title>Beleza de Camarim | Login</title>
+
+            <meta name="author" content="Jeanne Lima">
+            <meta name="description" content="Site do salão Beleza de Camarim no Rio de Janeiro - RJ.">
+            <meta name="keywords" content="salão, beleza, cabelo, unha, manicure, face, maquiagem, barba, corte, casamento, debutante, serviço, camarim">
+            
+            <!-- Favicon -->
+            <link rel="shortcut icon" href="img/assets/favicon.png" type="image/x-icon">
+        
+            <!-- Links -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+            <!-- Link Bootstrap-->
+            <link rel="stylesheet" href="css/bootstrap.min.css">
+            <script src="js/scripts.js"></script>
+        
+            <!-- Link Main CSS-->
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="css/responsividade.css">
+            <link rel="stylesheet" href="css/animate.css">
+        
+            <!-- Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+            
+
+    </head>
+    
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"></div>
+</div>
+
+<body id="page-top">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid col-xs-12">
+                 <div class="row col-xs-10 col-xs-offset-1">
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="img/assets/logo_Navbar.png" alt="Logo do Salão Beleza de Camarim"></a>
+                    </div>
+                     
+                    <div class="navbar-login">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="login.html">Entre ou<br>cadastre-se</a></li> 
+                            <a href="login.html"><img src="img/assets/icone_Login.png" class="img-responsive" alt="ícone de redirecionamento para página de Login"></a>
+                        </ul>
+                    </div>
+
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav nav-parte-1">
+                            <li><a href="index.html">Início</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Serviços<span></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="pacotes.html">Pacotes</a></li>
+                                    <li><a href="catalogo.html">Catálogo</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agendamentos<span></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="pacotes.html">Histórico</a></li>
+                                    <li><a href="catalogo.html">Pendentes</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ajuda<span></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="perguntas.html">Perguntas Frequentes</a></li>
+                                    <li><a href="politica.html">Política e Segurança</a></li>
+                                    <li><a href="termos.html">Termos e Condições</a></li>
+                                    <li><a href="cancelamento.html">Cancelamento e Retorno</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div> 
+                    
+                </div>
+            </div>
+        </nav>
+        <!-- Fim Navbar -->
+
+        <!-- Error 404 -->
+        <section id="error404">
+            <div class="container col-xs-12">
+
+                <!-- Error 404 Mensagem -->
+                <div class="row col-xs-10 col-xs-offset-1">
+                    <div class="message404 box anime">
+                        <div class="error">Erro 404</div>
+                        <hr>
+                        <div class="titulo404">Desculpe-nos</div>
+                        <div class="subtitulo404">A página que você procura não existe ou foi removida</div>
+                        <a class="btn" href="index.html">Visite nossa Homepage</a>
+                    </div>
+                </div>
+                <!--Fim Error 404 Mensagem-->
+
+            </div>
+        </section>
+        <!-- Fim  Error 404 -->
+
+        <!-- Botão Email Fixo -->
+                <div class="overlay-modal"></div>
+            <div id="btn-email">
+                <img src="img/assets/icone_Email.png">
+            </div>
+        <!-- Fim Botão Email Fixo -->
+        <!-- Formulario Email -->
+                    <div id="contactForm" class="form-group">
+                        
+                        <div class="form-titulo">
+                            <span class="titulo">Mensagem</span>
+                            <span class="subtitulo">Entre em contato</span>
+                        </div>
+                    
+                      <form action="#">
+                        <label for="inputName" class="col-xs-12 control-label">Nome</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="INSIRA SEU NOME"  required />
+                        <label for="inputEmail3" class="col-xs-12 control-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail3" placeholder="INFORME SEU EMAIL" required>
+                        <label for="inputSubject" class="col-xs-12 control-label">Assunto</label>
+                        <input type="text" class="form-control" id="inputSubject" placeholder="INDIQUE O ASSUNTO" required />
+                        <label for="inputMessage" class="col-xs-12 control-label">Mensagem</label>
+                        <textarea type="text" class="form-control" id="inputComment" placeholder="DIGITE SUA MENSAGEM"></textarea>
+                        <button type="submit" class="btn btn-default btn-block formBtn">Enviar</button>
+                      </form>
+                    </div>
+                    <!-- Fim Botão Email Fixo-->
+
+            <footer>
+                <div class="container col-xs-12">
+                    <div class="row col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
+                        
+                        <!-- App Mkt -->
+                        <div class="app-mkt box anime col-xs-12 col-sm-6">
+                            <div class="app-mockup col-xs-5">
+                              <img src="img/propagandas/mockup-app-5.png"
+                                  alt="Aplicativo do Beleza de Camarim">
+                            </div>
+
+                            <div class="app-text col-xs-7">
+                                <h5 class="app-subtitle">Baixe o Aplicativo</h5>
+                                <h4 class="app-title">Escolha o serviço, agende e pague ainda mais rápido de onde estiver.</h4>
+                                    <div class="download-apresentacao">
+                                        <a href="#" target="_blank"><img src="img/assets/btn_AppleStore.png" alt="google play" class="img-responsive botton-download col-xs-5 col-sm-5 col-md-4 col-lg-5"></a>
+                                        <a href="#" target="_blank"><img src="img/assets/btn_GooglePlay.png" alt="app store" class="img-responsive botton-download col-xs-5 col-sm-5 col-md-4 col-lg-5"></a>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- Fim App Mkt -->
+
+                        <!-- Menus Footer -->
+                        <div class="menus-footer box anime col-xs-12 col-sm-5">
+                            <ul class="col-xs-12 col-sm-3 footer-servicos">
+                                <li><h3>Serviços</h3></li>
+                                <li><a href="#">Casamentos</a></li>
+                                <li><a href="#">Debutantes</a></li>
+                                <li><a href="#">Cabelos</a></li>
+                                <li><a href="#">Unhas</a></li>
+                                <li><a href="#">Maquiagem</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-4 footer-carreira">
+                                <li><h3>Carreira</h3></li>
+                                <li><a href="#">Cursos</a></li>
+                                <li><a href="#">Trabalhe conosco</a></li>    
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-4 footer-ajuda">
+                                <li><h3>Ajuda</h3></li>
+                                <li><a href="#">Perguntas frequentes</a></li>
+                                <li><a href="#">Política e segurança</a></li>
+                                <li><a href="#">Termos e condições</a></li>
+                                <li><a href="#">Cancelamento e retorno</a></li>     
+                            </ul>
+                        </div>
+                    </div>
+                        <!-- Fim Menus Footer -->
+
+                </div>
+            </footer>
+        
+    </body>
+</html>
+
